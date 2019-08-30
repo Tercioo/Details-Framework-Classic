@@ -7922,7 +7922,7 @@ DF.CastFrameFunctions = {
 		local name, text, texture, startTime, endTime, isTradeSkill, castID, notInterruptible, spellID = CastingInfo (unit)
 
 		if (not name) then
-			print (unit, name, text, texture, "no name, bye", type (unit))
+			--print (unit, name, text, texture, "no name, bye", type (unit))
 			return
 		end
 
@@ -8195,7 +8195,10 @@ local getCastBar = function (unitId)
 		return
 	end
 
-	local castBar = plateFrame.unitFrame.castBar
+	local castBar = plateFrame.unitFrame and plateFrame.unitFrame.castBar
+	if (not castBar) then
+		return
+	end
 
 	return castBar
 end
@@ -8207,8 +8210,10 @@ local triggerCastEvent = function (castBar, event, unitId, ...)
 end
 
 local funcCast = function (event, unitId, ...)
-	triggerCastEvent (getCastBar (unitId), event, unitId)
-
+	local castBar = getCastBar (unitId)
+	if (castBar) then
+		triggerCastEvent (castBar, event, unitId)
+	end
 end
 
 fCast.UNIT_SPELLCAST_START = function (self, event, unitId, ...)

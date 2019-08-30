@@ -26,9 +26,8 @@ DF.AuthorInfo = {
 }
 
 function DF.IsClassicWow()
-	--WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
 	local gameVersion = GetBuildInfo()
-	if (gameVersion:match ("%d") == "1") then
+	if (gameVersion:match ("%d") == "1" or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 		return true
 	end
 	return false
