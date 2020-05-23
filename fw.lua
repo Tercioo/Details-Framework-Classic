@@ -23,7 +23,7 @@ SMALL_NUMBER = 0.000001
 ALPHA_BLEND_AMOUNT = 0.8400251
 
 DF.AuthorInfo = {
-	Name = "Tercioo",
+	Name = "Terciob",
 	Discord = "https://discord.gg/AGSzAZX",
 }
 
