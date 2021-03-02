@@ -8435,8 +8435,8 @@ local getCastBar = function (unitId)
 end
 
 local triggerCastEvent = function (castBar, event, unitId, ...)
-	if (castBar) then
-		DF.CastFrameFunctions.OnEvent (castBar, event, unitId)
+	if (castBar and castBar.OnEvent) then
+		castBar.OnEvent (castBar, event, unitId)
 	end
 end
 
